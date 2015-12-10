@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">AppRepasoFlow2</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="textoProgeso">Texto Progeso</string>
+    textoProgeso
+</resources>
