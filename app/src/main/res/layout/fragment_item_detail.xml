@@ -15,6 +15,12 @@
         android:text="limpiar"
         android:onClick="botonLimpiar"
         android:layout_gravity="bottom"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="cerrar"
+        android:onClick="botonCerrar"
+        android:layout_gravity="bottom"/>
 
 
 </FrameLayout>

@@ -1,5 +1,6 @@
 package com.patriciamape.apprepasoflow2;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -72,6 +74,17 @@ public class ItemListActivity extends AppCompatActivity
                     .findFragmentById(R.id.item_list))
                     .setActivateOnItemClick(true);
         }
+            /*
+                Button button = (Button) findViewById(R.id.botonresult);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent1 = new Intent(ItemListActivity.this, ItemDetailActivity.class);
+                        startActivityForResult(intent1, 1); //REQUEST CODE: identificador del numero de llamada del activity
+                    }
+                });
+            */
+
 
 
         girar();
@@ -140,6 +153,23 @@ public class ItemListActivity extends AppCompatActivity
         TextView textview2 = (TextView) findViewById(R.id.progreso);
         if (textview1 != null)
             textview1.setText(" ");
-            textview2.setText(" ");
+        textview2.setText(" ");
+    }
+
+    public void botonResultado(View view){
+        Intent intent1 = new Intent(ItemListActivity.this, ItemDetailActivity.class);
+        startActivityForResult(intent1,1); //REQUEST CODE: identificador del numero de llamada del activity
+    }
+
+    //Cuando cerremos la segunda activity se lanza este metodo
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intentData) {//REQUEST CODE, RESULT_OK, intentResultado
+
+        if(requestCode == 1){
+            if(resultCode == Activity.RESULT_OK){
+                String dato = intentData.getStringExtra("resultado");
+                Toast.makeText(ItemListActivity.this, dato, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

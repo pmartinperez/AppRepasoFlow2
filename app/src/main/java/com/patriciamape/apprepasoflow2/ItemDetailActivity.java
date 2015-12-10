@@ -1,5 +1,6 @@
 package com.patriciamape.apprepasoflow2;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 
 /**
@@ -38,6 +40,7 @@ public class ItemDetailActivity extends AppCompatActivity {
             }
         });
 
+
         // Show the Up button in the action bar.
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -50,7 +53,7 @@ public class ItemDetailActivity extends AppCompatActivity {
         //
         // http://developer.android.com/guide/components/fragments.html
         //
-        if (savedInstanceState == null) {
+       /* if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             Bundle arguments = new Bundle();
@@ -61,7 +64,7 @@ public class ItemDetailActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.item_detail_container, fragment)
                     .commit();
-        }
+        }*/
     }
 
     @Override
@@ -87,5 +90,13 @@ public class ItemDetailActivity extends AppCompatActivity {
         intent.putExtra("mensaje", message);
         startActivity(intent);
 
+    }
+
+    public void botonCerrar(View view){
+        Intent intentResultado = new Intent();
+        String dato = "ventana cerrada";
+        intentResultado.putExtra("resultado", dato);//clave,valor
+        setResult(Activity.RESULT_OK,intentResultado); //RESULT_OK manda un mensaje de que fue bien
+        finish();
     }
 }

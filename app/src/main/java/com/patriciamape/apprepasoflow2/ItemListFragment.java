@@ -1,10 +1,12 @@
 package com.patriciamape.apprepasoflow2;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.patriciamape.apprepasoflow2.dummy.DummyContent;
@@ -87,7 +89,10 @@ public class ItemListFragment extends ListFragment {
                 && savedInstanceState.containsKey(STATE_ACTIVATED_POSITION)) {
             setActivatedPosition(savedInstanceState.getInt(STATE_ACTIVATED_POSITION));
         }
+
     }
+
+
 
     @Override
     public void onAttach(Activity activity) {
